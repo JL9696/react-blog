@@ -20,4 +20,5 @@ const PostFormAdd = () => {
 
   );
 };
+
 export default PostFormAdd;
