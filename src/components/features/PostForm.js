@@ -5,6 +5,8 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { getAllCategories } from "../../redux/categoriesRedux";
+import { useSelector } from "react-redux";
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -18,12 +20,13 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [dateError, setDateError] = useState(false);
   const [contentError, setContentError] = useState(false);
   const [category, setCategory] = useState(props.category || '');
+  const categories = useSelector(getAllCategories);
 
   const handleSubmit = () => {
     setContentError(!content)
     setDateError(!publishedDate)
     if (content && publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content });
+       action({ title, author, publishedDate, shortDescription, content, category });
     }
   };
 
@@ -47,11 +50,11 @@ const PostForm = ({ action, actionText, ...props }) => {
         </Form.Group>
         <Form.Group className="mb-4">
           <Form.Label>Category</Form.Label>
-          <Form.Select aria-label="Default select example" value={category} onChange={e => setCategory(e.target.value)} >
-            <option></option>
-            <option value="sport">Sport</option>
-            <option value="news">News</option>
-            <option value="movies">Movies</option>
+          <Form.Select aria-label="Default select example" onChange={e => setCategory(e.target.value)} >
+            <option>Select category...</option>
+            <option value={categories[0]}>{categories[0]}</option>
+            <option value={categories[1]}>{categories[1]}</option>
+            <option value={categories[2]}>{categories[2]}</option>
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-4">

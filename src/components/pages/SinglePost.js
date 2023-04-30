@@ -37,9 +37,9 @@ const SinglePost = props => {
         </div>
       </div>
       <p /><b>Author: </b>{postData.author}
-      <br /><b>Published: </b>{postData.publishedDate}
-      <br/><b>Category: </b>{props.category}
-      <p />{dateToStr(postData.shortDescription)}
+      <br /><b>Published: </b>{dateToStr(postData.publishedDate)}
+      <br /><b>Category: </b>{postData.category}
+      <p />{postData.shortDescription}
       <p dangerouslySetInnerHTML={{ __html: postData.content }} />
 
       <Modal show={show} onHide={handleClose}>
