@@ -38,6 +38,7 @@ const SinglePost = props => {
       </div>
       <p /><b>Author: </b>{postData.author}
       <br /><b>Published: </b>{postData.publishedDate}
+      <br/><b>Category: </b>{props.category}
       <p />{dateToStr(postData.shortDescription)}
       <p dangerouslySetInnerHTML={{ __html: postData.content }} />
 

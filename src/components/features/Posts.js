@@ -3,8 +3,6 @@ import { getAllPosts } from "../../redux/postsRedux";
 import { Row } from "react-bootstrap";
 import Post from "./Post";
 
-
-
 const Posts = props => {
 
   const posts = useSelector(getAllPosts);
