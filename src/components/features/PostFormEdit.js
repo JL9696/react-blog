@@ -21,7 +21,7 @@ const PostFormEdit = () => {
   if(!postData) return <Navigate to="/" />
     return (
       <div>
-        <PostForm actionText="Edit post" action={handleEdit} author={postData.author} publishedDate={postData.publishedDate} title={postData.title} shortDescription={postData.shortDescription} content={postData.content} />
+        <PostForm actionText="Edit post" action={handleEdit} author={postData.author} publishedDate={postData.publishedDate} title={postData.title} shortDescription={postData.shortDescription} content={postData.content} category={postData.category} />
       </div>
   );
 };

@@ -50,11 +50,11 @@ const PostForm = ({ action, actionText, ...props }) => {
         </Form.Group>
         <Form.Group className="mb-4">
           <Form.Label>Category</Form.Label>
-          <Form.Select aria-label="Default select example" onChange={e => setCategory(e.target.value)} >
+          <Form.Select value={category} onChange={e => setCategory(e.target.value)} >
             <option>Select category...</option>
-            <option value={categories[0]}>{categories[0]}</option>
-            <option value={categories[1]}>{categories[1]}</option>
-            <option value={categories[2]}>{categories[2]}</option>
+            <option>{categories[0]}</option>
+            <option>{categories[1]}</option>
+            <option>{categories[2]}</option>
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-4">

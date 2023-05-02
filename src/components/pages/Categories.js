@@ -4,7 +4,7 @@ import { getAllCategories } from "../../redux/categoriesRedux";
 import { Link } from "react-router-dom";
 import { strToLowerCase } from "../../utils/strToLowerCase";
 
-const Categories = props => {
+const Categories = () => {
 
 	const categories = useSelector(getAllCategories);
 
@@ -12,11 +12,10 @@ const Categories = props => {
 	return (
 		<div style={{ width: '70%' }} className="m-auto">
 			<h1>Categories</h1>
-			<ListGroup>
-				<ListGroup.Item><Link key={props.id} to={"/categories/" + strToLowerCase(categories[0])}>{categories[0]}</Link></ListGroup.Item>
-				<ListGroup.Item><Link to={"/categories/" + strToLowerCase(categories[1])}>{categories[1]}</Link></ListGroup.Item>
-				<ListGroup.Item><Link to={"/categories/" + strToLowerCase(categories[2])}>{categories[2]}</Link></ListGroup.Item>
-			</ListGroup>
+			{categories.map(category =>
+				<ListGroup.Item>
+					<Link to={"/categories/" + category}>{category}</Link>
+				</ListGroup.Item>)}
 		</div>
 	);
 };
